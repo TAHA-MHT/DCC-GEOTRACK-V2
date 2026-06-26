@@ -24,21 +24,7 @@ jobs:
           channel: stable
           cache: true
 
-      - name: Prepare keystore + key.properties
-        env:
-          KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
-          STORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
-          KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
-        run: |
-          mkdir -p "$RUNNER_WORKSPACE/environment"
-          echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_WORKSPACE/environment/android.keystore"
-          cat > "$RUNNER_WORKSPACE/environment/key.properties" <<EOF
-          storePassword=$STORE_PASSWORD
-          keyPassword=$KEY_PASSWORD
-          keyAlias=$KEY_ALIAS
-          storeFile=../../../environment/android.keystore
-          EOF
+      
 
       - name: Build APK
         run: |
@@ -51,6 +37,21 @@ jobs:
           path: build/app/outputs/flutter-apk/app-release.apk
           if-no-files-found: error
           retention-days: 1
+
+       - name: Prepare keystore + key.properties
+        env:
+          STORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+        run: |
+          mkdir -p "$RUNNER_WORKSPACE/environment"
+          cp "$GITHUB_WORKSPACE/.github/release.keystore" "$RUNNER_WORKSPACE/environment/android.keystore"
+          cat > "$RUNNER_WORKSPACE/environment/key.properties" <<EOF
+          storePassword=$STORE_PASSWORD
+          keyPassword=$KEY_PASSWORD
+          keyAlias=$KEY_ALIAS
+          storeFile=../../../environment/android.keystore
+          EOF
 
   smoke-test-android:
     needs: build-android
