@@ -214,7 +214,7 @@ jobs:
             --apiIssuer "$ASC_ISSUER_ID"
 
   release-github:
-    needs: [publish-android, publish-ios]
+    needs: [smoke-test-android]
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
