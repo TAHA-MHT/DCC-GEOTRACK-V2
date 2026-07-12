@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:traccar_client/main.dart';
 import 'package:traccar_client/password_service.dart';
 import 'package:traccar_client/preferences.dart';
+import 'package:traccar_client/brand_config.dart';
 
 import 'geolocation_service.dart';
 import 'l10n/app_localizations.dart';
