@@ -174,7 +174,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('DCC GeoTrack Client'),
+        title: Text(BrandConfig.appName),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
