@@ -107,13 +107,13 @@ class _MainAppState extends State<MainApp> {
       supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.green,
+          seedColor: Colors.orange,
           brightness: Brightness.light,
         ),
       ),
       darkTheme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: seedColor,
+          seedColor: Colors.orange,
           brightness: Brightness.dark,
         ),
       ),
