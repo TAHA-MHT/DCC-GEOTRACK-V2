@@ -122,7 +122,8 @@ class _MainAppState extends State<MainApp> {
     ).copyWith(
       onSurface: Colors.blue,
       onSurfaceVariant: Colors.blue,
-    ),
+),
+   ),
    home: Stack(
         children: const [
           QuickActionsInitializer(),
