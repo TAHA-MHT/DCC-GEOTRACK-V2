@@ -108,10 +108,12 @@ class _MainAppState extends State<MainApp> {
     theme: ThemeData(
   scaffoldBackgroundColor: Colors.white,
   colorScheme: ColorScheme.fromSeed(
-    seedColor: const Color(0xFFF15A0B),
-    brightness: Brightness.light,
-  ).copyWith(onSurface: Colors.blue),
-),
+      seedColor: const Color(0xFFF15A0B),
+      brightness: Brightness.light,
+    ).copyWith(
+      onSurface: Colors.blue,
+      onSurfaceVariant: Colors.blue,
+    ),
  darkTheme: ThemeData(
       colorScheme: ColorScheme.fromSeed(
       seedColor: const Color(0xFFF15A0B),
