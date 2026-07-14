@@ -109,13 +109,6 @@ class _MainAppState extends State<MainApp> {
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFFF15A0B),
           brightness: Brightness.light,
-        ),
-      ),
-      theme: ThemeData(
-  scaffoldBackgroundColor: Colors.white,
-  colorScheme: ColorScheme.fromSeed(
-    seedColor: const Color(0xFFF15A0B),
-    brightness: Brightness.light,
   ),
 ),  
       home: Stack(
